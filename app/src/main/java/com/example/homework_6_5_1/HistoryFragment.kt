@@ -1,5 +1,6 @@
 package com.example.homework_6_5_1
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,9 +39,12 @@ class HistoryFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun initObserver() {
         viewModel.mOperation.observe(viewLifecycleOwner){
-            list.addAll(it)
+            list.clear()
+            list.addAll(it.reversed())
+            historyAdapter.notifyDataSetChanged()
         }
     }
 

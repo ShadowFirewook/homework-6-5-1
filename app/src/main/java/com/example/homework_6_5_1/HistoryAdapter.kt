@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.homework_6_5_1.databinding.ItemHistoryBinding
 
 class HistoryAdapter(
-    private var list: ArrayList<String> = arrayListOf()
+    private var operations: ArrayList<String> = arrayListOf()
 ): Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -15,11 +15,11 @@ class HistoryAdapter(
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(operations[position])
     }
 
     override fun getItemCount(): Int {
-       return list.size
+       return operations.size
     }
 
     inner class HistoryViewHolder(private val binding: ItemHistoryBinding): ViewHolder(binding.root){
